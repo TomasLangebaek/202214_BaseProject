@@ -11,11 +11,12 @@ export class ProductoEntity {
   nombre: string;
 
   @Column()
-  precio: string;
+  precio: number;
 
   @Column()
   tipo: string;
 
   @ManyToMany(() => TiendaEntity, tienda => tienda.productos)
+  @JoinTable()
   tiendas: TiendaEntity[];
 }
