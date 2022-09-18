@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "775cefea-5536-4a8a-9974-6d93eb26aa67",
+		"name": "Tienda",
+		"description": "Este conjunto de requests reprentan las operaciones que se pueden realizar sobre el recurso producto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23248852"
+	},
+	"item": [
+		{
+			"name": "Crear una tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"tienda_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores"
+					]
+				},
+				"description": "Este request crea un nuevo produccto"
+			},
+			"response": [
+				{
+					"name": "Crear una tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/productos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Ara\",\n    \"ciudad\": \"BOG\",\n    \"direccion\": \"Carrera 14# 105 A - 71\",\n    \"id\": \"6b6d1b11-832a-4528-b013-ea4167be4553\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/stores/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"{{tienda_id}}"
+					]
+				},
+				"description": "Este request obtiene un producto"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/productos/{{producto_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"productos",
+								"{{producto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"6b6d1b11-832a-4528-b013-ea4167be4553\",\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\",\r\n    \"productos\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las tiendas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Número de tiendas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores"
+					]
+				},
+				"description": "Este reuqest obtiene todos los productos existentes"
+			},
+			"response": [
+				{
+					"name": "Obtener todas las tiendas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"6b6d1b11-832a-4528-b013-ea4167be4553\",\r\n        \"nombre\": \"Ara\",\r\n        \"ciudad\": \"BOG\",\r\n        \"direccion\": \"Carrera 14# 105 A - 71\",\r\n        \"productos\": []\r\n    },\r\n    {\r\n        \"id\": \"2310020c-41fb-4d45-9468-3e0636785372\",\r\n        \"nombre\": \"producto pasta\",\r\n        \"ciudad\": \"BOG\",\r\n        \"direccion\": \"Carrera 14# 105 A - 71\",\r\n        \"productos\": []\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request obtiene un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el producto con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carulla\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/stores/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"{{tienda_id}}"
+					]
+				},
+				"description": "Este request actualiza un producto"
+			},
+			"response": [
+				{
+					"name": "Actualizar una tienda",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Carulla\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{producto_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{producto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"6b6d1b11-832a-4528-b013-ea4167be4553\",\r\n    \"nombre\": \"Carulla\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una tienda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carulla\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request actualiza un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Actualizar una tienda que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Carulla\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La tienda con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stores/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"{{tienda_id}}"
+					]
+				},
+				"description": "Este request borra un producto"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{tienda_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{tienda_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request borra un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el id especificado no existe\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

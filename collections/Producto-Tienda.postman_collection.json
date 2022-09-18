@@ -1,0 +1,1322 @@
+{
+	"info": {
+		"_postman_id": "9e43a3a3-20f0-4ad8-9340-f346ac48c5d6",
+		"name": "Producto-Tienda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23248852"
+	},
+	"item": [
+		{
+			"name": "Crear un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"producto_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"agua\",\r\n   \"precio\": 123,\r\n   \"tipo\": \"No perecedero\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				},
+				"description": "Este request crea un nuevo produccto"
+			},
+			"response": [
+				{
+					"name": "Crear un producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombre\": \"agua\",\r\n   \"precio\": 123,\r\n   \"tipo\": \"No perecedero\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"agua\",\n    \"precio\": 123,\n    \"tipo\": \"No perecedero\",\n    \"id\": \"698439c3-92ca-4ed0-9746-18993b023f63\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"tienda_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores"
+					]
+				},
+				"description": "Este request crea una nueva categoría"
+			},
+			"response": [
+				{
+					"name": "Crear una tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Ara\",\n    \"ciudad\": \"BOG\",\n    \"direccion\": \"Carrera 14# 105 A - 71\",\n    \"id\": \"607abbac-bf81-436f-a1d1-7bfc89ca68a0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear  otra tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"tienda_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Exito\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"stores"
+					]
+				},
+				"description": "Este request crea una nueva categoría"
+			},
+			"response": [
+				{
+					"name": "Crear otra tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Exito\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Exito\",\n    \"ciudad\": \"BOG\",\n    \"direccion\": \"Carrera 14# 105 A - 71\",\n    \"id\": \"bafa626d-7ce8-4c96-b709-974ac08a2ddc\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una tienda a un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "Este request agrega una categoría a un producto"
+			},
+			"response": [
+				{
+					"name": "Agregar una tienda a un producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"698439c3-92ca-4ed0-9746-18993b023f63\",\r\n    \"nombre\": \"agua\",\r\n    \"precio\": 123,\r\n    \"tipo\": \"No perecedero\",\r\n    \"tiendas\": [\r\n        {\r\n            \"id\": \"bafa626d-7ce8-4c96-b709-974ac08a2ddc\",\r\n            \"nombre\": \"Exito\",\r\n            \"ciudad\": \"BOG\",\r\n            \"direccion\": \"Carrera 14# 105 A - 71\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una tienda que no existe a un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{categoria_id}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{categoria_id}}",
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request agrega una categoría que no existe a un producto"
+			},
+			"response": [
+				{
+					"name": "Agregar una tienda que no existe a un producto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{categoria_id}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{categoria_id}}",
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La tienda con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una tienda a un producto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El producto con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-0000-000000000000",
+						"stores",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "Este request agrega una categoría a un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Agregar una tienda a un producto que no existe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores/{{tienda_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000",
+								"stores",
+								"{{tienda_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El producto con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda de un producto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"31ea0ae4-b165-4479-9894-c4c08623ab6f\",\r\n    \"nombre\": \"Ara\",\r\n    \"ciudad\": \"BOG\",\r\n    \"direccion\": \"Carrera 14# 105 A - 71\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda que no existe de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda que no existe de un producto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La tienda con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda de un producto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El producto con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-0000-000000000000",
+						"stores",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda de un producto que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000",
+								"stores",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El producto con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una tienda que no está asociada a un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no está asociada al producto\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto que no existe"
+			},
+			"response": [
+				{
+					"name": "Obtener una tienda que no está asociada a un producto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/6h761977-4573-13gj-790d-8u02ac142y72/productos/10y76890-6u54-53e9-9021-33e6ak901439",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"6h761977-4573-13gj-790d-8u02ac142y72",
+								"productos",
+								"10y76890-6u54-53e9-9021-33e6ak901439"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La tienda con el id especificado no está asociada al producto\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las tiendas de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto"
+			},
+			"response": [
+				{
+					"name": "Obtener todas las tiendas de un producto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"31ea0ae4-b165-4479-9894-c4c08623ab6f\",\r\n        \"nombre\": \"Ara\",\r\n        \"ciudad\": \"BOG\",\r\n        \"direccion\": \"Carrera 14# 105 A - 71\"\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las tiendas de un producto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El producto con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-0000-000000000000",
+						"stores"
+					]
+				},
+				"description": "Este request obtiene la categoría de un producto"
+			},
+			"response": [
+				{
+					"name": "Obtener todas las tiendas de un producto que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000",
+								"stores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El producto con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar las tiendas de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\":\"{{tienda_id_2}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar las tiendas de un producto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"10y76890-6u54-53e9-9021-33e6ak901439\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"a58f85de-c87a-491b-b776-d4bd0b07b48f\",\r\n    \"nombre\": \"agua\",\r\n    \"precio\": 123,\r\n    \"tipo\": \"No perecedero\",\r\n    \"tiendas\": [\r\n        {\r\n            \"id\": \"c2d1f937-a2ae-4653-962c-a7913b1e7793\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar las tiendas que no existen de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\":\"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar las tiendas que no existen de un producto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el id especificado no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar las tiendas de un producto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El producto con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\":\"{{producto_id_2}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-0000-000000000000",
+						"stores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar las tiendas de un producto que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"10y76890-6u54-53e9-9021-33e6ak901439\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000",
+								"stores"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El producto con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "Este request borra una categoría que está asociada a productos"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda de un producto",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"{{tienda_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda de un producto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El producto con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000/stores/{{tienda_id_2}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-0000-000000000000",
+						"stores",
+						"{{tienda_id_2}}",
+						""
+					]
+				},
+				"description": "Este request borra una categoría que está asociada a productos"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda de un producto que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/productos/10y76890-6u54-53e9-9021-33e6ak901439",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"productos",
+								"10y76890-6u54-53e9-9021-33e6ak901439"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La categoria con el id especificado no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda que no existe de un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Este request borra una categoría que está asociada a productos"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda que no existe de un producto",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La tienda con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una tienda que no está asociada a un producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La tienda con el id especificado no está asociada al producto\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"{{producto_id}}",
+						"stores",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "Este request borra una categoría que está asociada a productos"
+			},
+			"response": [
+				{
+					"name": "Borrar una tienda que no está asociada a un producto",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{producto_id}}/stores/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{producto_id}}",
+								"stores",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 412,\r\n    \"message\": \"La tienda con el id especificado no está asociada al producto\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

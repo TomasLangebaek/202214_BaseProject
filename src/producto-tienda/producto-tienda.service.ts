@@ -30,7 +30,7 @@ export class ProductoTiendaService {
     return await this.productoRepository.save(producto);
   }
 
-  async findStoresFromProduct(productoId: string, tiendaId: string): Promise<TiendaEntity> {
+  async findStoreFromProduct(productoId: string, tiendaId: string): Promise<TiendaEntity> {
     const tienda: TiendaEntity = await this.tiendaRepository.findOne({where: {id: tiendaId}});
     if (!tienda)
       throw new BusinessLogicException("La tienda con el id especificado no existe", BusinessError.NOT_FOUND)
@@ -47,7 +47,7 @@ export class ProductoTiendaService {
     return productoTienda;
   }
 
-  async findStoreFromProduct(productoId: string): Promise<TiendaEntity[]> {
+  async findStoresFromProduct(productoId: string): Promise<TiendaEntity[]> {
     const producto: ProductoEntity = await this.productoRepository.findOne({where: {id: productoId}, relations: ["tiendas"]});
     if (!producto)
       throw new BusinessLogicException("El producto con el id especificado no existe", BusinessError.NOT_FOUND)

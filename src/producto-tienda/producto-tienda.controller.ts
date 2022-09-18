@@ -16,14 +16,14 @@ export class ProductoTiendaController {
     return await this.productoTiendaService.addStoreToProducto(productoId, storeId);
   }
   
-  @Get(':productoId/stores/:storeId')
-  async findStoreFromProduct(@Param('storeId') storeId: string){
-    return await this.productoTiendaService.findStoreFromProduct(storeId);
+  @Get(':productoId/stores')
+  async findStoresFromProduct(@Param('productoId') productoId: string){
+    return await this.productoTiendaService.findStoresFromProduct(productoId);
   }
   
-  @Get(':productoId/stores/storeId')
-  async findStoresFromProduct(@Param('productoId') productoId: string, @Param('storeId') storeId: string){
-    return await this.productoTiendaService.findStoresFromProduct(productoId, storeId);
+  @Get(':productoId/stores/:storeId')
+  async findStoreFromProduct(@Param('productoId') productoId: string, @Param('storeId') storeId: string){
+    return await this.productoTiendaService.findStoreFromProduct(productoId, storeId);
   }
   
   @Put(':productoId/stores')
